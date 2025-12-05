@@ -1,40 +1,52 @@
 :root {
-    --color-primary: #007681;   /* Azul  */
-    --color-needs: #ab8cd9;     /* lila */
-    --color-wants: #edcce6;     /* crema */
-    --color-savings: #edd7d7;   /* Amarillo/Dorado */
-    
-    --color-bg: #fdefef;
-    --color-text: #25072c;
-}body {
+    --color-primary: #C886A3;        
+    --color-needs: #D8A7C4;          
+    --color-wants: #F3DDE8;          
+    --color-savings: #F2C7C2;        
+
+    --color-bg: #F9F4F6;             
+    --color-text: #4A2E3A;          
+
+    --glass-bg: rgba(255, 255, 255, 0.45);
+    --glass-border: rgba(255, 255, 255, 0.25);
+}
+
+
+body {
     font-family: 'Inter', sans-serif;
     background-color: var(--color-bg);
     color: var(--color-text);
-    padding-top: 80px; /* Espacio para el navbar fijo */
+    padding-top: 80px;
+    backdrop-filter: blur(6px);
 }
 
-/* === NAVBAR Y OFFCANVAS (CONSERVADOS) === */
+
 .navbar-custom {
     background-color: var(--color-primary);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-.navbar-brand, .nav-link {
-    color: rgb(71, 209, 211) !important;
-}
-.offcanvas-header {
-    background-color: var(--color-primary);
-    color: rgb(231, 176, 224);
-}
-.offcanvas-title {
-    color: rgb(238, 178, 193);
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
 }
 
-/* === TARJETA PRINCIPAL === */
+.navbar-brand,
+.nav-link {
+    color: #FCECF3 !important;
+    font-weight: 600;
+}
+
+.offcanvas-header {
+    background-color: var(--color-primary);
+}
+
+.offcanvas-title {
+    color: #FCECF3;
+}
+
 .calculator-card {
-    background-color: rgb(165, 241, 166);
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
     border-radius: 20px;
     padding: 40px;
-    border: none;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
 }
 
 .main-title {
@@ -42,86 +54,91 @@
     font-weight: 700;
 }
 
-/* === BOTÓN DE CALCULAR === */
+
 .btn-calculate {
-    background-color: var(--color-savings); /* Amarillo llamativo */
-    color: var(--color-primary);
-    font-weight: 700;
+    background-color: var(--color-primary);
+    color: white;
     border: none;
     border-radius: 50px;
-    transition: transform 0.2s;
-}
-.btn-calculate:hover {
-    background-color: #f8e8b9;
-    transform: scale(1.02);
+    font-weight: 700;
+    transition: 0.25s ease;
 }
 
-/* === ESTILOS DE RESULTADOS (LAS 3 TARJETAS) === */
-.result-card {
-    border: none;
-    background-color: #d68585;
-    border-radius: 15px;
-    transition: transform 0.3s;
+.btn-calculate:hover {
+    background-color: #b76b8f;
+    transform: scale(1.03);
 }
+
+
+.result-card {
+    background: var(--glass-bg);
+    border-radius: 18px;
+    border: 1px solid var(--glass-border);
+    transition: 0.3s ease;
+}
+
 .result-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
 }
 
-/* Bordes superiores de colores */
+
 .border-needs { border-top: 5px solid var(--color-needs); }
 .border-wants { border-top: 5px solid var(--color-wants); }
 .border-savings { border-top: 5px solid var(--color-savings); }
 
-/* Textos de colores */
+
 .text-needs { color: var(--color-needs); }
 .text-wants { color: var(--color-wants); }
-.text-savings { color: #dcb342; /* Un poco más oscuro para leerse bien */ }
+.text-savings { color: #C68A7C; }
 
-/* Círculos de iconos */
+
 .icon-circle {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: rgb(240, 156, 156);
-    font-size: 1.5rem;
+    color: white;
+    font-size: 1.6rem;
 }
+
 .bg-needs { background-color: var(--color-needs); }
 .bg-wants { background-color: var(--color-wants); }
 .bg-savings { background-color: var(--color-savings); }
 
-/* === GRÁFICO DE PASTEL (CSS PURO) === */
+
 .chart-container {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .pie-chart {
-    width: 200px;
-    height: 200px;
+    width: 220px;
+    height: 220px;
     border-radius: 50%;
-    /* Truco de CSS para hacer un gráfico circular con gradiente cónico */
     background: conic-gradient(
-        var(--color-needs) 0% 50%,   /* 0 a 50% Azul */
-        var(--color-wants) 50% 80%,  /* 50 a 80% Aqua (30% total) */
-        var(--color-savings) 80% 100% /* 80 a 100% Amarillo (20% total) */
+        var(--color-needs) 0% 50%,
+        var(--color-wants) 50% 80%,
+        var(--color-savings) 80% 100%
     );
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
     position: relative;
 }
-/* Agujero del centro para hacerlo "Donut Chart" */
+
+
 .pie-chart::after {
     content: "LIN";
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
     width: 120px; height: 120px;
-    background: rgb(242, 188, 188);
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
     border-radius: 50%;
+    border: 1px solid var(--glass-border);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -129,64 +146,37 @@
     color: var(--color-primary);
 }
 
-/* Animación simple */
+
 .animate-fade-in {
     animation: fadeIn 0.8s ease-in-out;
 }
+
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
-/* Ajustes Móviles */
+
+
+footer {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 1.8rem 0;
+    margin-top: 3rem;
+    text-align: center;
+}
+
+footer a {
+    color: white;
+}
+
+.social a {
+    color: white;
+    margin: 0 1rem;
+    font-size: 1.3rem;
+}
+
+
 @media (max-width: 768px) {
-    .calculator-card { padding: 20px; }
-    .display-6 { font-size: 1.5rem; }
-}
-
-/* PANTALLA PEQUEÑA */
-
-@media (max-width: 700px){
-    body{
-      background-color:#001996;
-      flex-direction: row;
-    }
-  }
-  
-  /* PANTALLA MEDIANA */
-  
-  @media (min-width: 900px){
-    body{
-      background-color:#efc2f1;
-      flex-direction: column;
-    }
-  }
-  
-  /* PANTALLA GRANDE */
-  
-  @media (min-width: 1200px){
-    body{
-      background-color:#57f7ff;
-      flex-direction: column;
-    }
-  }
-  
-  /* PANTALLA EXTRA GRANDE */
-  
-  @media (min-width: 1800px){
-    body{
-      background-color:#1d5008;
-      flex-direction: column;
-    }
-  }
-  footer, a{
-  background-color:#409caf;
-  color:white;
-  text-align:center;
-  margin-top:2rem;
-}
-
-.social a{
-  color:white;
-  margin: 0 1rem;
-  font-size:1.2rem;
+    .calculator-card { padding: 25px; }
+    .display-6 { font-size: 1.4rem; }
 }

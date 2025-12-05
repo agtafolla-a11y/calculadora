@@ -1,0 +1,130 @@
+
+:root {
+    --color-primary: #ff4e87; 
+    --color-accent: #ff85b3; 
+    --color-dark: #4a4a4a; 
+    --color-success: #28a745; 
+    --color-warning: #fd7e14; 
+    --color-danger: #dc3545; 
+    --color-bg: #fff0f7; 
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-dark);
+    padding-top: 60px;
+}
+
+
+.navbar-custom {
+    background-color: var(--color-primary);
+    box-shadow: 0 4px 12px rgba(255, 78, 135, 0.4);
+}
+
+.navbar-custom .nav-link,
+.navbar-custom .navbar-brand {
+    color: #ffffff;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.navbar-custom .nav-link:hover {
+    color: var(--color-accent);
+}
+
+.navbar-custom .navbar-brand {
+    font-weight: 700;
+}
+
+
+.calculator-card {
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(255, 136, 178, 0.25);
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 900px;
+    border-top: 5px solid var(--color-primary);
+}
+
+.title {
+    color: var(--color-primary);
+    font-weight: 800;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #ff85b3;
+}
+
+
+.form-control {
+    border-radius: 12px;
+    padding: 12px;
+    border: 1px solid #ffc8da;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    background-color: #fff7fa;
+}
+
+.form-control:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 0.2rem rgba(255, 78, 135, 0.25);
+}
+
+
+.btn-calculate {
+    background-color: var(--color-primary);
+    color: white;
+    font-weight: 700;
+    padding: 12px 30px;
+    border-radius: 50px;
+    border: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-calculate:hover {
+    background-color: var(--color-accent);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 133, 179, 0.5);
+}
+
+
+#resultContainer {
+    margin-top: 35px;
+    padding: 30px;
+    border-radius: 16px;
+    text-align: center;
+    background-color: #ffe6f1;
+    border: 1px solid #ffbdd5;
+    box-shadow: 0 8px 20px rgba(255, 133, 179, 0.25);
+}
+
+.text-excellent { 
+    color: var(--color-success); 
+}
+.text-warning { 
+    color: var(--color-warning); 
+}
+.text-danger { 
+    color: var(--color-danger); 
+}
+
+
+.progress-bar {
+    background-color: var(--color-primary);
+}
+
+@media (max-width: 768px) {
+    .calculator-card {
+        padding: 20px;
+        margin: 20px 10px;
+    }
+    .subtitle-description {
+        display: none;
+    }
+    .display-4 {
+        font-size: 2rem;
+    }
+}
